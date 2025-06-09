@@ -152,4 +152,8 @@ Session.vim
 # auto-generated tag files
 tags
 
+# Prisma
+/generated/prisma
+
+
 # End of https://www.gitignore.io/api/node,vim,git,macos,linux,sublimetext
