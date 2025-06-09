@@ -6,6 +6,12 @@ class UserRepository {
     await User.create(userRequestDto);
   };
 
+  async findEmail(email) {
+    return await User.findOne({
+      where: {email: email}
+    })
+  }
+
 }
 
 module.exports = UserRepository;
