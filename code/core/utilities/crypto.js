@@ -6,8 +6,8 @@
  * @param {string} secret - The plain text string that needs to be encrypted.
  * @returns {string} The encrypted string.
  */
-export function encrypt(secret) {
-  return bcrypt.hash(secret, process.env.SALT_ROUNDS);
+async function encrypt(secret) {
+  return await bcrypt.hash(secret, parseInt(process.env.SALT_ROUNDS));
 }
 
 /**
@@ -17,6 +17,11 @@ export function encrypt(secret) {
  * @param {string} hashedItem - The hashed string to compare the plain text against.
  * @return {Promise<boolean>} A promise that resolves to a boolean value indicating whether the items match.
  */
-export function decrypt(toBeDecryptedItem, hashedItem) {
+function decrypt(toBeDecryptedItem, hashedItem) {
   return bcrypt.compare(toBeDecryptedItem, hashedItem);
 }
+
+module.exports = {
+  encrypt,
+  decrypt
+};
