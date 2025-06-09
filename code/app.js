@@ -6,6 +6,6 @@ const app = express();
 require('./config/middleware')(app, express);
 
 // Routes
-require('./config/routes')(app);
+// require('./config/routes')(app);
 
 module.exports = app;
