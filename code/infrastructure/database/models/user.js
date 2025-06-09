@@ -1,11 +1,25 @@
 ﻿const config = require('../config/connection');
 const {DataTypes} = require("sequelize");
 
-const User = config.define('user', {
+const User = config.define('users', {
   id: {
     type: DataTypes.UUID,
     defaultValue: crypto.randomUUID(),
     primaryKey: true
+  },
+  firstname: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  lastname: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  fullName: {
+    type: DataTypes.VIRTUAL,
+    get() {
+      return `${this.firstname} ${this.lastname}`;
+    }
   },
   email: {
     type: DataTypes.STRING,
