@@ -2,8 +2,10 @@ const express = require('express');
 
 const app = express();
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+// Middleware
+require('./config/middleware')(app, express);
 
+// Routes
+require('./config/routes')(app);
 
 module.exports = app;
