@@ -1,5 +1,3 @@
-﻿const config = require('../config/connection');
-
-module.exports = async () => {
-  await config.sync();
-}
+﻿module.exports = async () => {
+  await require('../models/user').sync();
+};
